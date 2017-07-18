@@ -1,28 +1,36 @@
 public class Motorcycle extends Vehicle{
-	
-	
-	public Motorcycle(String name) {
-		super(name);
-		// TODO Auto-generated constructor stub
-	}
 
-	
 	int wheel = 2;
-	String transmission;
-	//int totalDoors = 0;
-	//String name,int wheel,String transmission,int totalDoors
-	
+	String transmission = "?";
 
-	public void get_transmission(String transmission) {
-		this.transmission =transmission;
-		
-	
+
+	public Motorcycle(String name,int up_Keep,int age) {
+
+		super(name,up_Keep,age);
 	}
-	public String set_transmission() {
+	public int get_Bill() {
+		return (wheel+up_Keep)*age;
+	}
+	public int getWheel() {
+		return wheel;
+	}
 
+	public void setWheel(int wheel) {
+		this.wheel = wheel;
+	}
+
+	public String getTransmission() {
 		return transmission;
-	
 	}
+
+	public void setTransmission(String transmission) {
+		this.transmission = transmission;
+	}
+
+
+	
+
+
 	
 	
 	

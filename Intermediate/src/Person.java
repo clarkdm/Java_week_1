@@ -13,9 +13,7 @@ public class Person {
 	public String toString() {
 
 	return name + " is age "+age+" and is a " + job_Title;
-	
-	
-	
+
 }
 
 

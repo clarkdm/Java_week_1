@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Scanner;
 
 public class Intermediate {
 
@@ -25,6 +26,50 @@ public class Intermediate {
 		System.out.println(too_Hot(33,false));
 		System.out.println(too_Hot(94,false));
 		People();
+
+		Garage g_1 = new Garage();
+		Car v_1 = new Car("bob",22, "m",4, 4,2);
+		Car v_2 = new Car("bob_2",25, "A",5, 3,4);
+		helicopter v_3 = new helicopter("bob_3",2500,5);
+		Motorcycle v_4 = new Motorcycle("bob_4",25,1);
+		System.out.println(g_1.bobs.size());
+
+		System.out.println(g_1.add_Vehicle(v_1));
+		System.out.println(g_1.calculating_bills());
+		System.out.println(g_1.add_Vehicle(v_2));
+		System.out.println(g_1.calculating_bills());
+		System.out.println(g_1.add_Vehicle(v_3));
+		System.out.println(g_1.calculating_bills());
+		System.out.println(g_1.add_Vehicle(v_4));
+		System.out.println(g_1.calculating_bills());
+
+		System.out.println(g_1.bobs.size());
+		System.out.println(g_1.calculating_bills());
+		System.out.println(g_1.remove_Vehicle(v_1));
+		System.out.println(g_1.calculating_bills());
+		System.out.println(g_1.bobs.size());
+		System.out.println(g_1.add_Vehicle(v_1));
+		System.out.println(g_1.bobs.size());
+
+
+		System.out.println();
+		System.out.println(g_1.bobs);
+		System.out.println(g_1.fix_index(1));
+		System.out.println(g_1.bobs);
+		System.out.println(g_1.fix_Vehicle(v_4));
+		System.out.println(g_1.bobs);
+
+		System.out.println();
+
+		System.out.println("Enter your username: ");
+		Scanner scanner = new Scanner(System.in);
+
+		System.out.println(g_1.fix_Text(scanner.nextLine()));
+		System.out.println(g_1.bobs);
+
+
+
+
 
 	}
 	

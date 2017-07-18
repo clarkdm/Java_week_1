@@ -1,50 +1,64 @@
 public class helicopter extends Vehicle{
-	
-	
-	public helicopter(String name) {
-		super(name);
-		// TODO Auto-generated constructor stub
-	}
 
-	
+
 	int wheel = 3;
-	int totalRotors = 1;
+	int totalRotors = 2;
 	int totalDoors = 1;
-	//String name,int wheel,String transmission,int totalDoors
-	
 
-	public void get_wheel(int wheel) {
-		this.wheel =wheel;
-		
-	
+
+
+
+	public helicopter(String name,int up_Keep,int age) {
+		super(name,up_Keep,age);
 	}
-	public int set_wheel() {
 
+	public int get_Bill() {
+		return (wheel*totalDoors+up_Keep)*totalRotors*age;
+	}
+
+	
+
+
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public int getUp_Keep() {
+		return up_Keep;
+	}
+
+	public void setUp_Keep(int up_Keep) {
+		this.up_Keep = up_Keep;
+	}
+
+	public int getWheel() {
 		return wheel;
-	
 	}
-	public void get_totalRotors(int totalRotors) {
-		this.totalRotors =totalRotors;
-		
-	
-	}
-	public int set_totalRotors() {
 
+	public void setWheel(int wheel) {
+		this.wheel = wheel;
+	}
+
+	public int getTotalRotors() {
 		return totalRotors;
-	
 	}
-	public void get_totalDoors(int totalDoors) {
-		this.totalDoors =totalDoors;
-		
-	
-	}
-	public int set_totalDoors() {
 
-		return totalDoors;
-	
+	public void setTotalRotors(int totalRotors) {
+		this.totalRotors = totalRotors;
 	}
-	
-	
+
+	public int getTotalDoors() {
+		return totalDoors;
+	}
+
+	public void setTotalDoors(int totalDoors) {
+		this.totalDoors = totalDoors;
+	}
 	
 
 	public String toString() {
