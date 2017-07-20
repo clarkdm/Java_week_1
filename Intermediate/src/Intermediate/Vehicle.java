@@ -1,3 +1,4 @@
+package Intermediate;
 
 public abstract class Vehicle {
 	

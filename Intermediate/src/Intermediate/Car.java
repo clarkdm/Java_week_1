@@ -1,3 +1,5 @@
+package Intermediate;
+
 public class Car extends Vehicle{
 
 

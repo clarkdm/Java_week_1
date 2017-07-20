@@ -1,3 +1,5 @@
+package Intermediate;
+
 public class Motorcycle extends Vehicle{
 
 	int wheel = 2;

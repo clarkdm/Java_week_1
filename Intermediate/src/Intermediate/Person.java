@@ -1,3 +1,4 @@
+package Intermediate;
 
 public class Person {
 	String name = "";

@@ -1,3 +1,5 @@
+package Intermediate;
+
 import java.text.DecimalFormat;
 import java.util.ArrayList;
 
@@ -37,7 +39,7 @@ public class Paint_Wizard {
 //                    cuverie = cuverie + bobs.get(i).get_totel_cuverie();
 //                }
                 cuverie = bobs.get(i).num_Tins(a) * bobs.get(i).get_cuverie();
-               // System.out.println(" "+bobs.get(i).num_Tins(a) + " ### "+ bobs.get(i).get_cuverie());
+                // System.out.println(" "+bobs.get(i).num_Tins(a) + " ### "+ bobs.get(i).get_cuverie());
 //                System.out.println(" "+cuverie + " "+ a + " ~~~~ "+"@@@@ "+(cuverie - a)+" @@@ "+ best_Wastes + " ~~~~ " + (cuverie - a));
 
                 if (cuverie - a < best_Wastes) {
@@ -69,7 +71,7 @@ public class Paint_Wizard {
                 }
             }
 
-            return_S = return_S + "\n" + best_Wastes/bobs.get(best).getCover() + " Litres wastes";
+            return_S = return_S + "\n" + best_Wastes / bobs.get(best).getCover() + " Litres wastes";
 
         }
         return return_S;
@@ -97,7 +99,7 @@ public class Paint_Wizard {
                     best_s = new int[1];
                     best_s[0] = i;
                     Cheapest = (cuverie);
-                } else if (cuverie== Cheapest) {
+                } else if (cuverie == Cheapest) {
                     int x = best_s.length;
                     best_s = new int[x + 1];
                     best_s[x] = i;
