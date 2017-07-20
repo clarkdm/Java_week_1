@@ -20,10 +20,13 @@ public class Paint {
 
         int temp = a / get_totel_cuverie();
 
-        System.out.println("test" + a / get_totel_cuverie());
-        if ((a / get_totel_cuverie()) > 0) {
+//        System.out.println("test # " + get_totel_cuverie() +" ## @@ "+ a);
+//        System.out.println("test @ " + get_totel_cuverie() / a);
+//        System.out.println("test ? " + temp);
+        if ((get_totel_cuverie() % a) > 0) {
             temp = temp + 1;
         }
+//        System.out.println("test ? " + temp);
 
         return (int) temp;
     }

@@ -86,7 +86,9 @@ public class Intermediate {
         System.out.println(p1.num_Tins(2060));
         System.out.println(p2.num_Tins(2060));
         System.out.println(p3.num_Tins(2060));
-        System.out.println(p_W.get_least_wastes(1234));
+        System.out.println(p_W.get_least_wastes(165));
+        System.out.println(p_W.get_Cheapest(165));
+
 
     }
 
