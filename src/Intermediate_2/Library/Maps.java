@@ -12,6 +12,11 @@ public class Maps extends Item {
         this.loc = loc;
     }
 
+    public Maps(int id, String name, String loc, boolean in_lidrary, int out_at_u_id) {
+        super(id, name, in_lidrary, out_at_u_id);
+        this.loc = loc;
+    }
+
     public String getLoc() {
         return loc;
     }
@@ -23,11 +28,11 @@ public class Maps extends Item {
     @Override
     public String toString() {
         return "Maps{" +
-                "ID=" + ID +
+                "ID='" + ID + '\'' +
                 ", loc='" + loc + '\'' +
                 ", name='" + name + '\'' +
-                ", in_Lidrary=" + in_Lidrary +
-                ", out_At_U_ID=" + out_At_U_ID +
+                ", in_Lidrary='" + in_Lidrary + '\'' +
+                ", out_At_U_ID='" + out_At_U_ID + '\'' +
                 '}';
     }
 }

@@ -6,11 +6,13 @@ package Intermediate_2.Library;
 public class Person {
 
     String name = "";
+    int id = 0;
 
-    static int U_ID = 0;
+    static int U_ID = 1;
 
     public Person(String name) {
         U_ID = U_ID + 1;
+        id = U_ID;
         this.name = name;
     }
 
@@ -18,11 +20,19 @@ public class Person {
         return name;
     }
 
-    public static int getuId() {
-        return U_ID;
+    public int getuId() {
+        return id;
     }
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    @Override
+    public String toString() {
+        return "Person{" +
+                "name='" + name + '\'' +
+                ", id=" + id +
+                '}';
     }
 }

@@ -29,6 +29,8 @@ public interface Library_I {
 
     public String all_Item_toString();
 
+    public String all_Item_toString_2();
+
     public String all_U_toString();
 
     public boolean Register_person(String name);
@@ -36,6 +38,10 @@ public interface Library_I {
     public boolean Delete_person(String name);
 
     public boolean Update_person(String name, String ather);
+
+    public boolean to_File();
+
+    public boolean from_File();
 
 
 

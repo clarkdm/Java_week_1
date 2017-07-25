@@ -1,0 +1,6 @@
+Books{ID='20', ather='String1', name='bobs', in_Lidrary='true', out_At_U_ID='0'}
+Books{ID='21', ather='String1', name='bob', in_Lidrary='false', out_At_U_ID='2'}
+Newspapers{ID='22', name='Mbobs2', date='String1', in_Lidrary='true', out_At_U_ID='0'}
+Newspapers{ID='23', name='Mbob2', date='String1', in_Lidrary='true', out_At_U_ID='0'}
+Maps{ID='24', loc='String1', name='Mbob', in_Lidrary='false', out_At_U_ID='4'}
+Maps{ID='25', loc='String1', name='Mbo', in_Lidrary='true', out_At_U_ID='0'}

@@ -17,6 +17,15 @@ public abstract class Item {
         this.name = name;
     }
 
+    public Item(int id, String name, boolean in_lidrary, int out_at_u_id) {
+        ID = id;
+        in_Lidrary = in_lidrary;
+        out_At_U_ID = out_at_u_id;
+        this.name = name;
+    }
+
+
+
     public int getID() {
         return ID;
     }
@@ -48,10 +57,10 @@ public abstract class Item {
     @Override
     public String toString() {
         return "Item{" +
-                "ID=" + ID +
+                "ID='" + ID + '\'' +
                 ", name='" + name + '\'' +
-                ", in_Lidrary=" + in_Lidrary +
-                ", out_At_U_ID=" + out_At_U_ID +
+                ", in_Lidrary='" + in_Lidrary + '\'' +
+                ", out_At_U_ID=;" + out_At_U_ID + '\'' +
                 '}';
     }
 }

@@ -24,6 +24,7 @@ public class Board {
     int submarine = 3;
     int destroyer = 4;
     int carrier = 5;
+    int num_ships = 0;
     ArrayList<Ship> ships = new ArrayList<Ship>();
     //
     // empte w

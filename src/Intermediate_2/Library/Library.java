@@ -1,6 +1,11 @@
 package Intermediate_2.Library;
 
+import Intermediate_2.person;
+
+import java.awt.print.Book;
+import java.io.*;
 import java.util.ArrayList;
+import java.util.StringTokenizer;
 
 /**
  * Created by dmclark on 21/07/17.
@@ -23,13 +28,13 @@ public class Library implements Library_I {
     public boolean add_Maps(String name, String loc) {
 
 
-        return bobs.add(new Books(name, loc));
+        return bobs.add(new Maps(name, loc));
     }
 
     public boolean add_Newspapers(String name, String date) {
 
 
-        return bobs.add(new Books(name, date));
+        return bobs.add(new Newspapers(name, date));
     }
 
 
@@ -67,12 +72,15 @@ public class Library implements Library_I {
 
     public boolean Update_Books(String name, String new_name, String ather) {
         if (get_ID(name) >= 0) {
-            System.out.println(get_index_from_name(name));
-            ((Books) bobs.get(get_index_from_name(name))).setName(new_name);
-            ((Books) bobs.get(get_index_from_name(name))).setAther(ather);
-            System.out.println(bobs.size());
-            // bobs.remove(get_index_from_name(name));
-            System.out.println(bobs.size());
+            Books temp = (Books) bobs.get(get_index_from_name(name));
+//            System.out.println(get_index_from_name(name));
+//            System.out.println(temp.getAther());
+//            bobs.remove(get_index_from_name(name));
+            temp.setName(new_name);
+//            System.out.println(temp.getAther());
+            temp.setAther(ather);
+//            System.out.println(temp.getAther());
+            bobs.add(temp);
             return true;
         }
         return false;
@@ -81,9 +89,12 @@ public class Library implements Library_I {
     public boolean Update_Maps(String name, String new_name, String loc) {
 
         if (get_ID(name) >= 0) {
-            ((Maps) bobs.get(get_index_from_name(name))).setName(new_name);
-            ((Maps) bobs.get(get_index_from_name(name))).setLoc(new_name);
+            Maps temp = ((Maps) bobs.get(get_index_from_name(name)));
             bobs.remove(get_index_from_name(name));
+            temp.setName(new_name);
+            temp.setLoc(new_name);
+            bobs.add(temp);
+
             return true;
         }
         return false;
@@ -92,9 +103,11 @@ public class Library implements Library_I {
     public boolean Update_Newspapers(String name, String new_name, String date) {
 
         if (get_ID(name) >= 0) {
-            ((Newspapers) bobs.get(get_index_from_name(name))).setName(new_name);
-            ((Newspapers) bobs.get(get_index_from_name(name))).setDate(date);
+            Newspapers temp = ((Newspapers) bobs.get(get_index_from_name(name)));
             bobs.remove(get_index_from_name(name));
+            temp.setName(new_name);
+            temp.setDate(date);
+            bobs.add(temp);
             return true;
         }
         return false;
@@ -103,13 +116,17 @@ public class Library implements Library_I {
     }
 
     private int get_index_from_name(String name_) {
+
         return get_index(get_ID(name_));
     }
 
     private int get_index(int id) {
         for (int i = 0; i < bobs.size(); i++) {
+            //System.out.println(id + "  " + bobs.get(i).getID());
             if (bobs.get(i).getID() == id) {
-                return bobs.get(i).getID();
+//                System.out.println("###########");
+
+                return i;
             }
         }
 
@@ -119,7 +136,10 @@ public class Library implements Library_I {
     public int get_ID(String name_) {
 
         for (int i = 0; i < bobs.size(); i++) {
+//            System.out.println("########### " + bobs.get(i).getName().equals(name_));
+//            System.out.println("########### 2 " + bobs.get(i).getName()+" " +name_);
             if (bobs.get(i).getName().equals(name_)) {
+//                System.out.println("id "+bobs.get(i).getID());
                 return bobs.get(i).getID();
             }
         }
@@ -159,6 +179,19 @@ public class Library implements Library_I {
                 '}';
     }
 
+    @Override
+    public String all_Item_toString_2() {
+        String temp = "";
+        for (int i = 0; i < bobs.size(); i++) {
+            if (bobs.get(i).getOut_At_U_ID() > 0) {
+                temp = temp + "Name :" + bobs.get(i).getName() + ", U_ID :" + bobs.get(i).getOut_At_U_ID() + "\n";
+
+
+            }
+        }
+        return temp;
+    }
+
 
     public String all_U_toString() {
         return "Library{" +
@@ -183,8 +216,11 @@ public class Library implements Library_I {
     @Override
     public boolean Update_person(String name, String new_name) {
         if (get_ID_for_Person(name) >= 0) {
-            peps.get(get_index_from_name_for_Person(name)).setName(new_name);
+            Person temp = peps.get(get_index_from_name_for_Person(name));
             peps.remove(get_index_from_name_for_Person(name));
+
+            temp.setName(new_name);
+            peps.add(temp);
             return true;
         }
         return false;
@@ -197,4 +233,131 @@ public class Library implements Library_I {
                 ", peps=" + peps +
                 '}';
     }
+
+
+    public boolean to_File() {
+
+        try {
+            PrintWriter writer = new PrintWriter("stuf.txt", "UTF-8");
+            for (int i = 0; i < bobs.size(); i++) {
+
+                writer.println(bobs.get(i));
+            }
+
+            writer.close();
+        } catch (IOException e) {
+            return false;
+            // do something
+        }
+        return true;
+    }
+
+    public boolean from_File() {
+
+        BufferedReader br = null;
+        try {
+            br = new BufferedReader(new FileReader("stuf.txt"));
+        } catch (FileNotFoundException e) {
+            return false;
+        }
+        try {
+            StringBuilder sb = new StringBuilder();
+            String line = br.readLine();
+
+
+            while (line != null) {
+
+                //System.out.println("test   "+line);
+                bobs.add(add(line));
+
+                line = br.readLine();
+                //System.out.println("test   "+line);
+            }
+
+        } catch (IOException e) {
+            return false;
+        } finally {
+            try {
+                br.close();
+            } catch (IOException e) {
+                return false;
+            }
+            return true;
+        }
+
+    }
+
+    private Item add(String a) {
+        Item q = null;
+
+        StringTokenizer st = new StringTokenizer(a, "{");
+
+        String temp = st.nextToken();
+
+        if (temp.equals("Books")) {
+            StringTokenizer st_2 = new StringTokenizer(st.nextToken(), "\'");
+
+
+            st_2.nextToken();
+            int id = Integer.parseInt(st_2.nextToken());
+
+
+            st_2.nextToken();
+            String ather = st_2.nextToken();
+            st_2.nextToken();
+            String name = st_2.nextToken();
+            st_2.nextToken();
+            boolean in_Lidrary = false;
+            if ("true".equals(st_2.nextToken())) {
+                in_Lidrary = true;
+            }
+            st_2.nextToken();
+            int out_At_U_ID = Integer.parseInt(st_2.nextToken());
+
+            q = new Books(id, ather, name, in_Lidrary, out_At_U_ID);
+
+        } else if (temp.equals("Newspapers")) {
+            StringTokenizer st_2 = new StringTokenizer(st.nextToken(), "\'");
+
+            st_2.nextToken();
+            int id = Integer.parseInt(st_2.nextToken());
+            st_2.nextToken();
+            String name = st_2.nextToken();
+            st_2.nextToken();
+            String date = st_2.nextToken();
+            st_2.nextToken();
+            boolean in_Lidrary = false;
+            if ("true".equals(st_2.nextToken())) {
+                in_Lidrary = true;
+            }
+            st_2.nextToken();
+            int out_At_U_ID = Integer.parseInt(st_2.nextToken());
+
+            q = new Newspapers(id, name, date, in_Lidrary, out_At_U_ID);
+
+        } else if (temp.equals("Maps")) {
+            StringTokenizer st_2 = new StringTokenizer(st.nextToken(), "\'");
+
+            st_2.nextToken();
+            int id = Integer.parseInt(st_2.nextToken());
+            st_2.nextToken();
+            String loc = st_2.nextToken();
+            st_2.nextToken();
+            String name = st_2.nextToken();
+            st_2.nextToken();
+            boolean in_Lidrary = false;
+            if ("true".equals(st_2.nextToken())) {
+                in_Lidrary = true;
+            }
+            st_2.nextToken();
+            int out_At_U_ID = Integer.parseInt(st_2.nextToken());
+
+            q = new Maps(id, loc, name, in_Lidrary, out_At_U_ID);
+
+        }
+
+
+        return q;
+    }
+
 }

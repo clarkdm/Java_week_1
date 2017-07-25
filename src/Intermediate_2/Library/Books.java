@@ -12,6 +12,12 @@ public class Books extends Item {
         this.ather = ather;
     }
 
+
+    public Books(int id, String ather, String name, boolean in_lidrary, int out_at_u_id) {
+        super(id, name, in_lidrary, out_at_u_id);
+        this.ather = ather;
+    }
+
     public String getAther() {
         return ather;
     }
@@ -23,11 +29,11 @@ public class Books extends Item {
     @Override
     public String toString() {
         return "Books{" +
-                "ID=" + ID +
+                "ID='" + ID + '\'' +
                 ", ather='" + ather + '\'' +
                 ", name='" + name + '\'' +
-                ", in_Lidrary=" + in_Lidrary +
-                ", out_At_U_ID=" + out_At_U_ID +
+                ", in_Lidrary='" + in_Lidrary + '\'' +
+                ", out_At_U_ID='" + out_At_U_ID + '\'' +
                 '}';
     }
 }

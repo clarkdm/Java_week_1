@@ -1,7 +1,5 @@
 package Intermediate_2.Library;
 
-import java.util.Date;
-
 /**
  * Created by dmclark on 21/07/17.
  */
@@ -11,6 +9,11 @@ public class Newspapers extends Item {
 
     public Newspapers(String name, String date) {
         super(name);
+        this.date = date;
+    }
+
+    public Newspapers(int id, String name, String date, boolean in_lidrary, int out_at_u_id) {
+        super(id, name, in_lidrary, out_at_u_id);
         this.date = date;
     }
 
@@ -25,11 +28,11 @@ public class Newspapers extends Item {
     @Override
     public String toString() {
         return "Newspapers{" +
-                "ID=" + ID +
+                "ID='" + ID + '\'' +
                 ", name='" + name + '\'' +
                 ", date='" + date + '\'' +
-                ", in_Lidrary=" + in_Lidrary +
-                ", out_At_U_ID=" + out_At_U_ID +
+                ", in_Lidrary='" + in_Lidrary + '\'' +
+                ", out_At_U_ID='" + out_At_U_ID + '\'' +
                 '}';
     }
 }
