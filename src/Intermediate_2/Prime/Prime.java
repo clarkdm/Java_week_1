@@ -20,7 +20,7 @@ public class Prime {
         for (long i = 2; i < 3000000; i++) {
 
 //            if (math.) {
-//                System.out.println(i);
+            System.out.println(i);
 //            }
             if (mod_next(i, 2)) {
                 index = index + 1;
