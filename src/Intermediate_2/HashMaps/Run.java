@@ -35,7 +35,7 @@ public class Run {
 
 
         StringBuilder sb = new StringBuilder(qwert);
-        System.out.println("start");
+        //System.out.println("start");
         for (int x = 0; x < sb.length(); x++) {
 //            System.out.println(x);
 
@@ -53,14 +53,14 @@ public class Run {
 
         }
 
-        System.out.println(sb);
+        //System.out.println(sb);
         return sb.toString();
 
     }
 
     public void get() throws IOException {
 
-        BufferedReader br = new BufferedReader(new FileReader("wordList_2.txt"));
+        BufferedReader br = new BufferedReader(new FileReader("wordList.txt"));
         try {
 
             String line = br.readLine();
@@ -69,8 +69,10 @@ public class Run {
                 String x = abc(line);
                 ArrayList z = map.get(x);
                 if (z != null) {
+//                    System.out.println("###########");
                     z.add(line);
                 } else {
+//                    System.out.println("00000000000");
                     z = new ArrayList();
                     z.add(line);
                     map.put(x, z);
