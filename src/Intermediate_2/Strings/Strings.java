@@ -64,31 +64,38 @@ public class Strings {
 
             for (int i = z - 1; i >= 0; i--) {
                 z_2 = z_2 - 1;
-//                System.out.println(qwert.charAt(i) + "  " + asdfg.charAt(z_2));
+                System.out.println(qwert.charAt(i) + "  " + asdfg.charAt(z_2));
                 if (z_2 < 0) {
                     break;
                 } else {
 
                     if (qwert.charAt(i) != asdfg.charAt(z_2)) {
-//                        System.out.println("1_");
+                        System.out.println("1_");
                         index++;
                     }
                 }
             }
             for (int i = x; i < qwert.length(); i++) {
-                x_2 = x_2;
-//                System.out.println(qwert.charAt(i) + "  " + asdfg.charAt(x_2));
 
-                if (x_2 > asdfg.length()) {
+
+                //System.out.println(x_2 >= asdfg.length());
+                if (x_2 >= asdfg.length()) {
                     break;
                 } else {
-
+                    System.out.println(qwert.charAt(i) + "  " + asdfg.charAt(x_2));
                     if (!(qwert.charAt(i) == asdfg.charAt(x_2))) {
-//                        System.out.println("2_");
+                        System.out.println("2_");
                         index++;
                     }
                 }
+                if (i + 1 == qwert.length()) {
+                    System.out.println(x_2 - asdfg.length());
+
+                    index = index + (asdfg.length() - 1 - x_2);
+                }
+                x_2 = x_2 + 1;
             }
+
             return index;
         } else {
             return qwert.length();
