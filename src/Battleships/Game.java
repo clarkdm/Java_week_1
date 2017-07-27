@@ -5,8 +5,9 @@ import java.util.Scanner;
 /**
  * Created by dmclark on 23/07/17.
  */
-public class Game {
+public class Game implements GUI_I {
 
+    private GUI gui;
     Board b1;
     Board b2;
     int size;
@@ -22,18 +23,20 @@ public class Game {
     int carrier = 1;
     boolean t;
     boolean start;
+    int x = 99;
+    int y = 99;
 
     public Game(int size) {
         this.size = size;
         b1 = new Board(size, patrol_boat, battleships, submarine, destroyer, carrier);
         b2 = new Board(size, patrol_boat, battleships, submarine, destroyer, carrier);
         AI ai = new AI(size);
-
+        gui = new GUI(size, this);
         start = true;
         t = true;
         ai.add_Boats(b2);
         System.out.println("P1#################################");
-
+        ai.add_Boats(b1);
 //        add_Boats(b1);
 //
 //        while (start) {
@@ -46,12 +49,12 @@ public class Game {
 //                t = !t;
 //            } else {
 //                System.out.println("P2");
-//                ai.take_Shot(b1);
+//                //ai.take_Shot(b1);
 //
 //                start = b1.is_Alive();
 //                t = !t;
 //            }
-//
+////
 //
 //        }
 //        System.out.println("GAME OVER");
@@ -118,7 +121,6 @@ public class Game {
 
     //
     public boolean take_Shot(Board b) {
-
         String temp = b.get_next_Boat();
         boolean i = true;
         while (i) {
@@ -141,9 +143,7 @@ public class Game {
             if (!b.is_Alive()) {
                 i = false;
             }
-
         }
-
         return true;
     }
 
@@ -156,4 +156,38 @@ public class Game {
         Game g = new Game(12);
     }
 
+    @Override
+    public void someoneSaid_Shot(int x, int y) {
+        System.out.println(x + "hit" + y);
+//            System.out.println(b.toString_2());
+//            System.out.println("Take Shot");
+//            Scanner sc = new Scanner(System.in);
+//            System.out.println("X");
+//            int x = sc.nextInt();
+//            System.out.println("y");
+//            int y = sc.nextInt();
+        Board b;
+        if (t) {
+            b = b1;
+        } else {
+            b = b2;
+        }
+
+        boolean i = b.take_Shot(x, y);
+
+        if (!i) {
+            System.out.println("miss");
+            gui.edit(x, y, 'M');
+
+        } else {
+            System.out.println("hit");
+            // System.out.println(b.toString());
+            gui.edit(x, y, 'X');
+            if (!b.is_Alive()) {
+                i = false;
+            }
+        }
+
+
+    }
 }
