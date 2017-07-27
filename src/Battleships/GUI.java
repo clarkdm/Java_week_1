@@ -17,7 +17,7 @@ public class GUI extends Frame {
         btn1 = new Button("Button 1");
         add(btn1);
         btn2 = new Button("This is Button 2");
-        add(btn2);
+        //add(btn2);
         btn3 = new Button("3");
         add(btn3);
         btn4 = new Button("Another Button 4");

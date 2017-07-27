@@ -123,7 +123,7 @@ public class Board {
         return null;
     }
 
-    public char get_next_Boat_size() {
+    public int get_next_Boat_size() {
 
         if (n_patrol_boat > 0) {
             return 2;
@@ -180,7 +180,7 @@ public class Board {
         if (can_plas(l, x, y, xd, yd)) {
             if (type == 'p') {
                 n_patrol_boat--;
-
+                System.out.println("#########");
             } else if (type == 'b') {
                 n_battleships--;
 
@@ -353,4 +353,5 @@ public class Board {
         }
         return temp;
     }
+
 }
