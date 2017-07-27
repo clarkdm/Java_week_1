@@ -29,13 +29,19 @@ public class Offline_Exercises {
         System.out.println(stringClean("abbbcdd"));
         System.out.println(stringClean("Hello"));
 
-        System.out.println();
-        System.out.println();
-        System.out.println();
+        System.out.println(fibonacci(0));
+        System.out.println(fibonacci(1));
+        System.out.println(fibonacci(8));
 
+        System.out.println(bunnyEars(0));
+        System.out.println(bunnyEars(1));
+        System.out.println(bunnyEars(2));
         System.out.println();
         System.out.println();
-        System.out.println();
+        System.out.println(diamond(8));
+        System.out.println(diamond(2));
+        System.out.println(diamond(4));
+        System.out.println(diamond(20));
 
     }
 
@@ -127,4 +133,44 @@ public class Offline_Exercises {
         return sb.toString();
     }
 
+    public static int fibonacci(int a) {
+        int i = 0;
+        int s = 1;
+
+        for (int e = 0; e < a; e++) {
+            int q = i;
+            i = i + s;
+            s = q;
+        }
+        return i;
+    }
+
+    public static int bunnyEars(int a) {
+
+        return a + a;
+    }
+
+    public static String diamond(int a) {
+        String b = "\n";
+        int s = 1;
+        for (int i = a; i > 1; i--) {
+            b = b + diamond__(i - 1) + "/" + diamond__(s - 1) + "\\\n";
+            s = s + 2;
+        }
+        s = (a * 2) - 4;
+        for (int i = 1; i < a; i++) {
+            b = b + diamond__(i) + "\\" + diamond__(s) + "/\n";
+            s = s - 2;
+        }
+        return b;
+    }
+
+    public static String diamond__(int a) {
+        String b = "";
+        for (int i = 0; i < a; i++) {
+            b = b + " ";
+        }
+
+        return b;
+    }
 }
